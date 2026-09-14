@@ -1,9 +1,7 @@
 import { prisma } from "@/lib/db";
-import { getUpcomingFixtures, getFixturesByIds, searchTeam } from "@/lib/apiFootball";
+import { getSeasonFixtures, getFixturesByIds, searchTeam } from "@/lib/apiFootball";
 import { fixtureFieldsFromApi } from "@/lib/fixtureStatus";
 import type { Club } from "@/generated/prisma/client";
-
-const DEFAULT_UPCOMING_COUNT = Number(process.env.SYNC_UPCOMING_COUNT ?? 10);
 
 // Resolve e cacheia o apiFootballId de um clube, caso ainda não esteja definido.
 export async function resolveClubApiId(club: Club): Promise<Club> {
@@ -22,12 +20,13 @@ export async function resolveClubApiId(club: Club): Promise<Club> {
   });
 }
 
-// Busca as próximas partidas de um clube na API-Football e faz upsert no banco.
+// Busca as partidas da temporada atual de um clube na API-Football e faz upsert no banco.
 export async function syncClubFixtures(club: Club): Promise<number> {
   const resolved = await resolveClubApiId(club);
   if (!resolved.apiFootballId) return 0;
 
-  const apiFixtures = await getUpcomingFixtures(resolved.apiFootballId, DEFAULT_UPCOMING_COUNT);
+  const currentSeason = new Date().getFullYear();
+  const apiFixtures = await getSeasonFixtures(resolved.apiFootballId, currentSeason);
 
   for (const apiFixture of apiFixtures) {
     await prisma.fixture.upsert({

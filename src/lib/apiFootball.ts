@@ -166,15 +166,28 @@ export interface ApiStanding {
 
 // ---- Endpoints usados pelo app ----
 
+// O campo `search` da API-Football só aceita letras (sem acento), números e espaços.
+function normalizeSearchTerm(name: string): string {
+  return name
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "") // remove acentos
+    .replace(/[^a-zA-Z0-9\s]/g, " ") // troca hífen/outros símbolos por espaço
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 // A API-Football não aceita `search` e `country` juntos no endpoint /teams
 // (retorna 400 "The Country field cannot be used with the Search field").
 // Buscamos só por nome e desempatamos pelo país no código, se necessário.
 export function searchTeam(name: string) {
-  return apiFootballGet<ApiTeam[]>("/teams", { search: name });
+  return apiFootballGet<ApiTeam[]>("/teams", { search: normalizeSearchTerm(name) });
 }
 
-export function getUpcomingFixtures(teamId: number, next = 15) {
-  return apiFootballGet<ApiFixture[]>("/fixtures", { team: teamId, next });
+// Planos free da API-Football não têm acesso ao parâmetro `next` em /fixtures
+// (retorna 400 "Free plans do not have access to the Next parameter").
+// Buscamos todas as partidas da temporada do time e filtramos/ordenamos no código.
+export function getSeasonFixtures(teamId: number, season: number) {
+  return apiFootballGet<ApiFixture[]>("/fixtures", { team: teamId, season });
 }
 
 export function getFixturesByIds(ids: number[]) {

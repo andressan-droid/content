@@ -9,8 +9,8 @@ const DEFAULT_UPCOMING_COUNT = Number(process.env.SYNC_UPCOMING_COUNT ?? 10);
 export async function resolveClubApiId(club: Club): Promise<Club> {
   if (club.apiFootballId) return club;
 
-  const results = await searchTeam(club.name, club.country);
-  const match = results[0];
+  const results = await searchTeam(club.name);
+  const match = results.find((r) => r.team.country === club.country) ?? results[0];
   if (!match) {
     console.warn(`[sync] time não encontrado na API-Football para "${club.name}"`);
     return club;

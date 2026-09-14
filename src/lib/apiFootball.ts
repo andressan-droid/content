@@ -18,9 +18,32 @@ class ApiFootballError extends Error {
   }
 }
 
-async function apiFootballGet<T = unknown>(
+// Espaçamento mínimo entre chamadas para não estourar o limite "por minuto" dos planos
+// mais baixos da API-Football (ex.: plano free costuma permitir ~10 req/min).
+const MIN_INTERVAL_MS = Number(process.env.API_FOOTBALL_MIN_INTERVAL_MS ?? 6500);
+let lastRequestAt = 0;
+let requestQueue: Promise<void> = Promise.resolve();
+
+function throttle<T>(fn: () => Promise<T>): Promise<T> {
+  const run = requestQueue.then(async () => {
+    const wait = Math.max(0, lastRequestAt + MIN_INTERVAL_MS - Date.now());
+    if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
+    lastRequestAt = Date.now();
+  });
+  requestQueue = run.catch(() => {});
+  return run.then(fn);
+}
+
+function apiFootballGet<T = unknown>(
   path: string,
   params: Record<string, string | number | undefined> = {}
+): Promise<T> {
+  return throttle(() => doFetch<T>(path, params));
+}
+
+async function doFetch<T>(
+  path: string,
+  params: Record<string, string | number | undefined>
 ): Promise<T> {
   if (!API_KEY) {
     throw new ApiFootballError(
@@ -143,8 +166,11 @@ export interface ApiStanding {
 
 // ---- Endpoints usados pelo app ----
 
-export function searchTeam(name: string, country = "Brazil") {
-  return apiFootballGet<ApiTeam[]>("/teams", { search: name, country });
+// A API-Football não aceita `search` e `country` juntos no endpoint /teams
+// (retorna 400 "The Country field cannot be used with the Search field").
+// Buscamos só por nome e desempatamos pelo país no código, se necessário.
+export function searchTeam(name: string) {
+  return apiFootballGet<ApiTeam[]>("/teams", { search: name });
 }
 
 export function getUpcomingFixtures(teamId: number, next = 15) {

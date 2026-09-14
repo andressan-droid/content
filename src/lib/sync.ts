@@ -20,13 +20,20 @@ export async function resolveClubApiId(club: Club): Promise<Club> {
   });
 }
 
-// Busca as partidas da temporada atual de um clube na API-Football e faz upsert no banco.
+// Temporada a sincronizar. Planos free da API-Football só liberam temporadas antigas
+// (normalmente até ~1 ano atrás) — defina SYNC_SEASON no .env para testar com uma
+// temporada permitida no seu plano; sem essa variável, usa o ano atual.
+function targetSeason(): number {
+  const override = Number(process.env.SYNC_SEASON);
+  return Number.isFinite(override) && override > 0 ? override : new Date().getFullYear();
+}
+
+// Busca as partidas da temporada configurada de um clube na API-Football e faz upsert no banco.
 export async function syncClubFixtures(club: Club): Promise<number> {
   const resolved = await resolveClubApiId(club);
   if (!resolved.apiFootballId) return 0;
 
-  const currentSeason = new Date().getFullYear();
-  const apiFixtures = await getSeasonFixtures(resolved.apiFootballId, currentSeason);
+  const apiFixtures = await getSeasonFixtures(resolved.apiFootballId, targetSeason());
 
   for (const apiFixture of apiFixtures) {
     await prisma.fixture.upsert({

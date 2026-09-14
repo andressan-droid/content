@@ -1,0 +1,114 @@
+// Schema do banco de dados do FutebolCard Auto Content
+// Modelos: clubes clientes, partidas (fixtures) e os 3 conteúdos gerados por partida.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Clube cliente da FutebolCard
+model Club {
+  id             String    @id @default(cuid())
+  name           String    @unique
+  shortName      String
+  slug           String    @unique
+  apiFootballId  Int?      @unique
+  country        String    @default("Brazil")
+  active         Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  fixtures       Fixture[]
+
+  @@index([active])
+}
+
+enum FixtureStatus {
+  SCHEDULED
+  LIVE
+  HALFTIME
+  FINISHED
+  POSTPONED
+  CANCELLED
+}
+
+// Uma partida de um clube cliente (o clube pode ser mandante ou visitante)
+model Fixture {
+  id               String        @id @default(cuid())
+  club             Club          @relation(fields: [clubId], references: [id])
+  clubId           String
+
+  apiFootballId    Int           @unique
+
+  leagueName       String
+  leagueApiId      Int
+  season           Int
+  round            String?
+
+  homeTeamName     String
+  homeTeamApiId    Int
+  homeTeamLogo     String?
+  awayTeamName     String
+  awayTeamApiId    Int
+  awayTeamLogo     String?
+
+  homeGoals        Int?
+  awayGoals        Int?
+  homeGoalsHT      Int?
+  awayGoalsHT      Int?
+
+  venueName        String?
+  venueCity        String?
+  kickoff          DateTime
+  status           FixtureStatus @default(SCHEDULED)
+  statusShort      String?
+
+  rawStatsJson     String?       // cache do último payload de estatísticas/eventos da API-Football
+  rawPredictionJson String?      // cache do payload de predictions/odds
+
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  contents         Content[]
+
+  @@index([clubId, kickoff])
+  @@index([status])
+}
+
+enum ContentStage {
+  PRE
+  HALFTIME
+  POST
+}
+
+enum ContentStatus {
+  PENDING
+  GENERATED
+  FAILED
+  PUBLISHED
+}
+
+// Conteúdo gerado para uma partida (pré-jogo, intervalo, pós-jogo)
+model Content {
+  id          String        @id @default(cuid())
+  fixture     Fixture       @relation(fields: [fixtureId], references: [id])
+  fixtureId   String
+
+  stage       ContentStage
+  status      ContentStatus @default(PENDING)
+
+  title       String?
+  body        String?       // texto final do conteúdo (markdown simples)
+  dataJson    String?       // dados estruturados usados para montar o conteúdo (auditoria/reuso)
+  error       String?
+
+  generatedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([fixtureId, stage])
+}

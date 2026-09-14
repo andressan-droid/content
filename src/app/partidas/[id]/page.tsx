@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db";
 import { FixtureStatusBadge, ContentStatusBadge } from "@/components/StatusBadge";
 import { ContentBody } from "@/components/ContentBody";
 import { GenerateButton } from "@/components/GenerateButton";
+import { CopyPanel } from "@/components/CopyPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +30,7 @@ export default async function FixtureDetailPage({ params }: { params: Promise<{ 
   const { id } = await params;
   const fixture = await prisma.fixture.findUnique({
     where: { id },
-    include: { club: true, contents: true },
+    include: { club: true, contents: { include: { copies: true } } },
   });
 
   if (!fixture) notFound();
@@ -75,6 +76,7 @@ export default async function FixtureDetailPage({ params }: { params: Promise<{ 
                 ) : (
                   <p className="text-sm text-neutral-500">Conteúdo ainda não gerado.</p>
                 )}
+                {content?.body && <CopyPanel contentId={content.id} copies={content.copies} />}
               </div>
             </section>
           );

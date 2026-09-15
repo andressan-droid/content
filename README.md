@@ -125,11 +125,10 @@ Para a equipe toda acessar via um link fixo, 24/7:
    nas variáveis de ambiente do serviço.
 3. Configure as demais variáveis de ambiente (mesmas do `.env.example`): `API_FOOTBALL_KEY`,
    `ANTHROPIC_API_KEY`, etc.
-4. **Start Command** do serviço web: `npm run release && npm start` (roda as migrações + seed antes
-   de subir o Next.js — idempotente, seguro rodar a cada deploy).
-5. Crie um **segundo serviço** no mesmo projeto, mesmo repositório/branch e mesmo Volume, com
-   **Start Command**: `npm run worker` — é o processo que sincroniza e gera conteúdo continuamente.
-6. Depois do primeiro deploy, acesse a URL pública gerada pelo Railway e clique em
+4. **Start Command**: `npm run start:all` — roda as migrações + seed, e sobe o site (Next.js) e o
+   worker de sincronização juntos, no mesmo serviço/contêiner (evita dois processos separados
+   acessando o mesmo arquivo SQLite ao mesmo tempo).
+5. Depois do primeiro deploy, acesse a URL pública gerada pelo Railway e clique em
    **"Sincronizar partidas agora"** no Painel.
 
 ## Uso manual

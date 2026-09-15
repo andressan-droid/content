@@ -12,13 +12,15 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:seed": "tsx prisma/seed.ts",
     "worker": "tsx src/worker/index.ts",
-    "release": "npm run db:migrate:deploy && npm run db:seed"
+    "release": "npm run db:migrate:deploy && npm run db:seed",
+    "start:all": "npm run release && concurrently -k -n web,worker \"npm start\" \"npm run worker\""
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.125.0",
     "@prisma/adapter-better-sqlite3": "^7.10.0",
     "@prisma/client": "^7.10.0",
     "better-sqlite3": "^13.0.3",
+    "concurrently": "^10.0.5",
     "dotenv": "^17.4.2",
     "next": "16.3.5",
     "node-cron": "^4.6.0",

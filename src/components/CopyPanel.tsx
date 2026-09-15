@@ -9,10 +9,12 @@ interface CopyLike {
   error: string | null;
 }
 
-const CHANNELS: { channel: "SOCIAL" | "EMAIL" | "NEWS"; label: string }[] = [
+const CHANNELS: { channel: "SOCIAL" | "EMAIL" | "NEWS" | "TWEET" | "REELS"; label: string }[] = [
   { channel: "SOCIAL", label: "Redes sociais" },
   { channel: "EMAIL", label: "E-mail marketing" },
   { channel: "NEWS", label: "Notícia (portal)" },
+  { channel: "TWEET", label: "Tweet (280 car.)" },
+  { channel: "REELS", label: "Roteiro de Reels" },
 ];
 
 export function CopyPanel({ contentId, copies }: { contentId: string; copies: CopyLike[] }) {

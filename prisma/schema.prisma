@@ -120,6 +120,8 @@ enum CopyChannel {
   SOCIAL // redes sociais (post curto, com emojis/hashtags)
   EMAIL  // e-mail marketing (assunto + corpo, com CTA)
   NEWS   // notícia para portal (texto jornalístico)
+  TWEET  // post para X/Twitter (até 280 caracteres)
+  REELS  // roteiro falado para gravação de Reels/TikTok/Shorts
 }
 
 // Copy gerada por IA (Claude) para um canal específico, a partir do Content base

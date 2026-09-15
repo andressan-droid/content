@@ -27,6 +27,25 @@ ASSUNTO: <linha única com o assunto do e-mail, chamativo, até 60 caracteres>
 TÍTULO: <manchete da notícia, até 90 caracteres>
 ---
 <corpo da notícia em 3 a 5 parágrafos>`,
+  TWEET: `Escreva um POST PARA X (TWITTER) sobre a partida.
+- Regra inegociável: o texto TODO (incluindo espaços, emojis e hashtags) deve ter NO MÁXIMO
+  280 caracteres. Conte os caracteres antes de responder e corte o que for preciso para caber.
+- Direto, impactante, pode usar 1 a 2 emojis e até 2 hashtags curtas se couber no limite.
+- Tom vibrante de torcida, mas sem inventar fatos.
+- Responda APENAS com o texto do post, nada mais (sem títulos, sem explicações, sem contagem de caracteres).`,
+  REELS: `Escreva um ROTEIRO FALADO para gravação de um vídeo curto (Reels/TikTok/Shorts) sobre a partida,
+para um apresentador/torcedor do clube narrar em frente à câmera.
+- Duração alvo: 30 a 45 segundos de fala (aproximadamente 80 a 120 palavras no total).
+- Comece com um gancho forte nos primeiros segundos (uma frase de impacto que prenda a atenção).
+- Escreva em frases curtas e faladas (como se alguém estivesse falando naturalmente, não lendo um texto formal).
+- Estruture em falas numeradas, cada uma indicando o trecho a ser dito; opcionalmente inclua uma
+  indicação de cena entre colchetes antes de cada fala (ex.: [closeup, animado]), mas o foco é o texto falado.
+- Termine com uma chamada rápida (ex.: comentar, seguir o clube, compartilhar).
+- Responda EXATAMENTE neste formato, sem nada antes ou depois:
+ROTEIRO:
+1. [indicação de cena opcional] Fala 1
+2. [indicação de cena opcional] Fala 2
+(continue numerando até o fim)`,
 };
 
 export const COPY_SYSTEM_PROMPT = `Você é o redator oficial de conteúdo esportivo da FutebolCard, escrevendo para os clubes de futebol clientes.

@@ -9,7 +9,7 @@ export function GenerateCopyButton({
   label,
 }: {
   contentId: string;
-  channel: "SOCIAL" | "EMAIL" | "NEWS";
+  channel: "SOCIAL" | "EMAIL" | "NEWS" | "TWEET" | "REELS";
   label: string;
 }) {
   const router = useRouter();

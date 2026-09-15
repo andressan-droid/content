@@ -11,7 +11,7 @@ apurados, nunca inventados pela IA.
 
 Flamengo, Fluminense, Red Bull Bragantino, Ponte Preta, Náutico, ABC, Sampaio Corrêa,
 Paraná Clube, Avaí, Coritiba, Operário Ferroviário, Confiança, CSA, América-RN, Santa Cruz,
-Sergipe e Retrô (definidos em `src/lib/clubs.ts`).
+Sergipe, Retrô e Juventus-SP (definidos em `src/lib/clubs.ts`).
 
 ## Arquitetura
 

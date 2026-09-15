@@ -12,7 +12,7 @@ export interface ClubSeed {
 export const CLUB_SEEDS: ClubSeed[] = [
   { name: "Flamengo", shortName: "FLA", slug: "flamengo", apiSearch: "Flamengo" },
   { name: "Fluminense", shortName: "FLU", slug: "fluminense", apiSearch: "Fluminense" },
-  { name: "Red Bull Bragantino", shortName: "RBB", slug: "red-bull-bragantino", apiSearch: "Red Bull Bragantino" },
+  { name: "Red Bull Bragantino", shortName: "RBB", slug: "red-bull-bragantino", apiSearch: "Bragantino" },
   { name: "Ponte Preta", shortName: "PON", slug: "ponte-preta", apiSearch: "Ponte Preta" },
   { name: "Náutico", shortName: "NAU", slug: "nautico", apiSearch: "Nautico" },
   { name: "ABC", shortName: "ABC", slug: "abc", apiSearch: "ABC FC" },

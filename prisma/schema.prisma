@@ -16,6 +16,7 @@ model Club {
   name           String    @unique
   shortName      String
   slug           String    @unique
+  apiSearch      String?   // termo usado para buscar o time na API-Football (pode diferir do nome de exibição)
   apiFootballId  Int?      @unique
   country        String    @default("Brazil")
   active         Boolean   @default(true)

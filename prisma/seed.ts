@@ -14,10 +14,12 @@ async function main() {
         name: seed.name,
         shortName: seed.shortName,
         slug: seed.slug,
+        apiSearch: seed.apiSearch,
       },
       update: {
         name: seed.name,
         shortName: seed.shortName,
+        apiSearch: seed.apiSearch,
       },
     });
   }

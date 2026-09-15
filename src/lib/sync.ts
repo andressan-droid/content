@@ -7,10 +7,12 @@ import type { Club } from "@/generated/prisma/client";
 export async function resolveClubApiId(club: Club): Promise<Club> {
   if (club.apiFootballId) return club;
 
-  const results = await searchTeam(club.name);
+  const results = await searchTeam(club.apiSearch ?? club.name);
   const match = results.find((r) => r.team.country === club.country) ?? results[0];
   if (!match) {
-    console.warn(`[sync] time não encontrado na API-Football para "${club.name}"`);
+    console.warn(
+      `[sync] time não encontrado na API-Football para "${club.name}" (busca: "${club.apiSearch ?? club.name}")`
+    );
     return club;
   }
 

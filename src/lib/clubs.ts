@@ -15,7 +15,7 @@ export const CLUB_SEEDS: ClubSeed[] = [
   { name: "Red Bull Bragantino", shortName: "RBB", slug: "red-bull-bragantino", apiSearch: "Bragantino" },
   { name: "Ponte Preta", shortName: "PON", slug: "ponte-preta", apiSearch: "Ponte Preta" },
   { name: "Náutico", shortName: "NAU", slug: "nautico", apiSearch: "Nautico" },
-  { name: "ABC", shortName: "ABC", slug: "abc", apiSearch: "ABC FC" },
+  { name: "ABC", shortName: "ABC", slug: "abc", apiSearch: "ABC" },
   { name: "Sampaio Corrêa", shortName: "SAM", slug: "sampaio-correa", apiSearch: "Sampaio Correa" },
   { name: "Paraná Clube", shortName: "PAR", slug: "parana-clube", apiSearch: "Parana Clube" },
   { name: "Avaí", shortName: "AVA", slug: "avai", apiSearch: "Avai" },
@@ -26,5 +26,5 @@ export const CLUB_SEEDS: ClubSeed[] = [
   { name: "América-RN", shortName: "AME", slug: "america-rn", apiSearch: "America RN" },
   { name: "Santa Cruz", shortName: "SCR", slug: "santa-cruz", apiSearch: "Santa Cruz" },
   { name: "Sergipe", shortName: "SER", slug: "sergipe", apiSearch: "Sergipe" },
-  { name: "Retrô", shortName: "RET", slug: "retro", apiSearch: "Retro FC" },
+  { name: "Retrô", shortName: "RET", slug: "retro", apiSearch: "Retro" },
 ];

@@ -116,6 +116,22 @@ para corrigir um conteúdo específico ou testar antes de uma partida real acont
    Alternativa sem processo contínuo: chame `POST /api/pipeline` e `POST /api/sync` a partir de um
    cron externo (ex.: cron job do servidor, GitHub Actions agendado, etc.).
 
+## Deploy (Railway)
+
+Para a equipe toda acessar via um link fixo, 24/7:
+
+1. Crie um projeto no [Railway](https://railway.app/) a partir deste repositório (branch em uso).
+2. Adicione um **Volume** persistente (ex.: montado em `/data`) e defina `DATABASE_URL="file:/data/dev.db"`
+   nas variáveis de ambiente do serviço.
+3. Configure as demais variáveis de ambiente (mesmas do `.env.example`): `API_FOOTBALL_KEY`,
+   `ANTHROPIC_API_KEY`, etc.
+4. **Start Command** do serviço web: `npm run release && npm start` (roda as migrações + seed antes
+   de subir o Next.js — idempotente, seguro rodar a cada deploy).
+5. Crie um **segundo serviço** no mesmo projeto, mesmo repositório/branch e mesmo Volume, com
+   **Start Command**: `npm run worker` — é o processo que sincroniza e gera conteúdo continuamente.
+6. Depois do primeiro deploy, acesse a URL pública gerada pelo Railway e clique em
+   **"Sincronizar partidas agora"** no Painel.
+
 ## Uso manual
 
 Na página de cada partida (`/partidas/[id]`) há um botão **Gerar/Regenerar** para cada um dos três

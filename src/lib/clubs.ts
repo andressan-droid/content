@@ -28,4 +28,5 @@ export const CLUB_SEEDS: ClubSeed[] = [
   { name: "Sergipe", shortName: "SER", slug: "sergipe", apiSearch: "Sergipe" },
   { name: "Retrô", shortName: "RET", slug: "retro", apiSearch: "Retro" },
   { name: "Juventus-SP", shortName: "JUV", slug: "juventus-sp", apiSearch: "Juventus" },
+  { name: "Joinville", shortName: "JEC", slug: "joinville", apiSearch: "Joinville" },
 ];

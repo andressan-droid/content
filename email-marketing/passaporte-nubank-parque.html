@@ -20,16 +20,19 @@
       .container { width: 100% !important; }
       .px { padding-left: 24px !important; padding-right: 24px !important; }
       .h1 { font-size: 28px !important; line-height: 34px !important; }
-      .btn a { display: block !important; }
+      .h2 { font-size: 22px !important; line-height: 28px !important; }
+      .col { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+      .gap { display: none !important; }
+      .btn, .btn a { display: block !important; width: 100% !important; }
     }
   </style>
 </head>
 <body style="margin:0; padding:0; background-color:#F2F4F2;">
 
-  <!-- Preheader (texto que aparece na prévia da caixa de entrada) -->
+  <!-- Preheader: texto que aparece na prévia da caixa de entrada -->
   <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#F2F4F2;">
-    [PREHEADER: frase curta que complementa o assunto]
-    &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+    Garanta sua cadeira fixa pelo valor atual até quarta-feira, 30 de setembro.
+    &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F2F4F2;">
@@ -39,47 +42,160 @@
         <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
         <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:#FFFFFF;">
 
-          <!-- HEADER -->
+          <!-- HEADER
+               Trocar o src pela URL pública da imagem em JPG/PNG (1200px de largura).
+               O .webp local serve só para pré-visualizar. -->
           <tr>
             <td style="background-color:#E9F8E3;">
-              <a href="[LINK_HEADER]" target="_blank">
-                <img src="header-passaporte.webp" width="600" alt="Passaporte Nubank Parque" style="width:100%; max-width:600px; height:auto; display:block; border:0; font-family:Arial, sans-serif; font-size:24px; font-weight:bold; color:#1A4A12;">
-              </a>
+              <img src="header-passaporte.webp" width="600" alt="Passaporte Nubank Parque" style="width:100%; max-width:600px; height:auto; display:block; border:0; font-family:Arial, sans-serif; font-size:24px; font-weight:bold; color:#1A4A12;">
             </td>
           </tr>
 
-          <!-- TÍTULO + TEXTO -->
+          <!-- ABERTURA -->
           <tr>
-            <td class="px" style="padding:40px 48px 8px 48px; font-family:Arial, Helvetica, sans-serif;">
-              <p style="margin:0 0 8px 0; font-size:14px; line-height:20px; font-weight:bold; color:#820AD1; text-transform:uppercase; letter-spacing:1px;">
-                [CHAMADA / EYEBROW]
-              </p>
+            <td class="px" style="padding:40px 48px 24px 48px; font-family:Arial, Helvetica, sans-serif;">
               <h1 class="h1" style="margin:0 0 16px 0; font-size:32px; line-height:38px; font-weight:800; font-style:italic; color:#1A4A12;">
-                [TÍTULO PRINCIPAL DO E-MAIL]
+                É no Nubank Parque que o Verdão decide a temporada.
               </h1>
+              <p style="margin:0; font-size:16px; line-height:24px; color:#333333;">
+                O Palmeiras vive um grande momento, e os clássicos que todo torcedor quer estar acontecem bem aqui, em casa.
+              </p>
+            </td>
+          </tr>
+
+          <!-- COMPETIÇÕES -->
+          <tr>
+            <td class="px" style="padding:0 48px 32px 48px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td class="col" width="160" valign="top" style="width:160px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#E9F8E3; border-radius:12px; border-top:4px solid #1A4A12;">
+                      <tr>
+                        <td style="padding:16px; font-family:Arial, Helvetica, sans-serif;">
+                          <p style="margin:0 0 4px 0; font-size:16px; line-height:20px; font-weight:800; font-style:italic; color:#1A4A12;">Brasileirão</p>
+                          <p style="margin:0; font-size:14px; line-height:20px; color:#333333;">Reta final decisiva</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="gap" width="12" style="width:12px; font-size:0; line-height:0;">&nbsp;</td>
+                  <td class="col" width="160" valign="top" style="width:160px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#E9F8E3; border-radius:12px; border-top:4px solid #1A4A12;">
+                      <tr>
+                        <td style="padding:16px; font-family:Arial, Helvetica, sans-serif;">
+                          <p style="margin:0 0 4px 0; font-size:16px; line-height:20px; font-weight:800; font-style:italic; color:#1A4A12;">Copa do Brasil</p>
+                          <p style="margin:0; font-size:14px; line-height:20px; color:#333333;">Semifinal no Nubank Parque</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="gap" width="12" style="width:12px; font-size:0; line-height:0;">&nbsp;</td>
+                  <td class="col" width="160" valign="top" style="width:160px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#E9F8E3; border-radius:12px; border-top:4px solid #1A4A12;">
+                      <tr>
+                        <td style="padding:16px; font-family:Arial, Helvetica, sans-serif;">
+                          <p style="margin:0 0 4px 0; font-size:16px; line-height:20px; font-weight:800; font-style:italic; color:#1A4A12;">Libertadores</p>
+                          <p style="margin:0; font-size:14px; line-height:20px; color:#333333;">Noites de mata-mata</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- PROBLEMA + SOLUÇÃO -->
+          <tr>
+            <td class="px" style="padding:0 48px 32px 48px; font-family:Arial, Helvetica, sans-serif;">
               <p style="margin:0 0 16px 0; font-size:16px; line-height:24px; color:#333333;">
-                Olá, [NOME]!
+                Você conhece a rotina: a corrida pelo ingresso, a fila, a disputa a cada jogo. Existe um jeito de não passar mais por isso: o <strong style="color:#820AD1;">Passaporte Nubank Parque</strong>.
               </p>
               <p style="margin:0; font-size:16px; line-height:24px; color:#333333;">
-                [Texto do corpo do e-mail. Explique a novidade, o benefício do Passaporte e o que a pessoa precisa fazer.]
+                É a sua cadeira fixa na Casa do Verdão, com o seu nome gravado, em todos os jogos em casa por 12 meses. Enquanto todo mundo corre atrás de ingresso, <strong>você só chega e senta.</strong>
               </p>
             </td>
           </tr>
 
-          <!-- CTA -->
+          <!-- BENEFÍCIOS -->
           <tr>
-            <td class="px" align="left" style="padding:32px 48px 40px 48px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="btn">
+            <td class="px" style="padding:0 48px 32px 48px; font-family:Arial, Helvetica, sans-serif;">
+              <h2 class="h2" style="margin:0 0 16px 0; font-size:24px; line-height:30px; font-weight:800; font-style:italic; color:#1A4A12;">
+                O que você ganha
+              </h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="32" valign="top" style="width:32px; padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:24px; font-weight:bold; color:#820AD1;">&#10003;</td>
+                  <td valign="top" style="padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#333333;">
+                    <strong style="color:#1A4A12;">Lugar fixo e nominal:</strong> a mesma cadeira, com o seu nome, em todos os jogos em casa
+                  </td>
+                </tr>
+                <tr>
+                  <td width="32" valign="top" style="width:32px; padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:24px; font-weight:bold; color:#820AD1;">&#10003;</td>
+                  <td valign="top" style="padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#333333;">
+                    <strong style="color:#1A4A12;">Sem disputa por ingresso:</strong> nada de fila ou sorte; é só chegar e sentar
+                  </td>
+                </tr>
+                <tr>
+                  <td width="32" valign="top" style="width:32px; padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:24px; font-weight:bold; color:#820AD1;">&#10003;</td>
+                  <td valign="top" style="padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#333333;">
+                    <strong style="color:#1A4A12;">Prioridade em shows e eventos</strong> no estádio (1 ingresso por cadeira)
+                  </td>
+                </tr>
+                <tr>
+                  <td width="32" valign="top" style="width:32px; padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:24px; font-weight:bold; color:#820AD1;">&#10003;</td>
+                  <td valign="top" style="padding:0 0 14px 0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#333333;">
+                    <strong style="color:#1A4A12;">Descontos exclusivos</strong> dentro e fora da arena: estacionamento, restaurantes, tour e lojas
+                  </td>
+                </tr>
+                <tr>
+                  <td width="32" valign="top" style="width:32px; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:24px; font-weight:bold; color:#820AD1;">&#10003;</td>
+                  <td valign="top" style="padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#333333;">
+                    <strong style="color:#1A4A12;">Transferível:</strong> não vai ao jogo? Empreste sua cadeira pra um amigo, colega ou familiar
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- AVISO DE REAJUSTE -->
+          <tr>
+            <td class="px" style="padding:0 48px 40px 48px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4EAFD; border-left:4px solid #820AD1; border-radius:8px;">
+                <tr>
+                  <td style="padding:20px 24px; font-family:Arial, Helvetica, sans-serif;">
+                    <p style="margin:0 0 8px 0; font-size:16px; line-height:22px; font-weight:bold; color:#820AD1;">
+                      O valor das cadeiras será reajustado.
+                    </p>
+                    <p style="margin:0; font-size:15px; line-height:22px; color:#333333;">
+                      A partir de 1º de outubro entram em vigor os novos preços do Passaporte. Para garantir a sua cadeira pelo valor atual, a compra precisa ser feita até <strong>quarta-feira, 30 de setembro</strong>.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA WHATSAPP -->
+          <tr>
+            <td class="px" align="center" style="padding:0 48px 40px 48px; font-family:Arial, Helvetica, sans-serif;">
+              <h2 class="h2" style="margin:0 0 12px 0; font-size:24px; line-height:30px; font-weight:800; font-style:italic; color:#1A4A12;">
+                Quer saber se faz sentido pra você?
+              </h2>
+              <p style="margin:0 0 24px 0; font-size:16px; line-height:24px; color:#333333;">
+                Fala com a nossa equipe no WhatsApp: a gente te explica tudo, tira suas dúvidas e mostra as melhores cadeiras disponíveis.
+              </p>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="btn" align="center">
                 <tr>
                   <td align="center" bgcolor="#820AD1" style="border-radius:28px;">
                     <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="[LINK_CTA]" style="height:52px; v-text-anchor:middle; width:260px;" arcsize="50%" stroke="f" fillcolor="#820AD1">
-                      <w:anchorlock/><center style="color:#FFFFFF; font-family:Arial, sans-serif; font-size:16px; font-weight:bold;">[TEXTO DO BOTÃO]</center>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://api.whatsapp.com/send/?phone=5511924948967&amp;text=Ol%C3%A1%2C+recebi+o+email+e+gostaria+de+saber+mais+sobre+as+condi%C3%A7%C3%B5es+do+Passaporte.&amp;type=phone_number&amp;app_absent=0&amp;utm_campaign=email_set_fc&amp;utm_source=email_set_fc" style="height:52px; v-text-anchor:middle; width:280px;" arcsize="50%" stroke="f" fillcolor="#820AD1">
+                      <w:anchorlock/><center style="color:#FFFFFF; font-family:Arial, sans-serif; font-size:16px; font-weight:bold;">Falar no WhatsApp &rarr;</center>
                     </v:roundrect>
                     <![endif]-->
                     <!--[if !mso]><!-->
-                    <a href="[LINK_CTA]" target="_blank" style="display:inline-block; padding:16px 36px; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:20px; font-weight:bold; color:#FFFFFF; text-decoration:none; border-radius:28px; background-color:#820AD1;">
-                      [TEXTO DO BOTÃO]
+                    <a href="https://api.whatsapp.com/send/?phone=5511924948967&amp;text=Ol%C3%A1%2C+recebi+o+email+e+gostaria+de+saber+mais+sobre+as+condi%C3%A7%C3%B5es+do+Passaporte.&amp;type=phone_number&amp;app_absent=0&amp;utm_campaign=email_set_fc&amp;utm_source=email_set_fc" target="_blank" style="display:inline-block; padding:16px 40px; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:20px; font-weight:bold; color:#FFFFFF; text-decoration:none; border-radius:28px; background-color:#820AD1;">
+                      Falar no WhatsApp &rarr;
                     </a>
                     <!--<![endif]-->
                   </td>
@@ -88,36 +204,39 @@
             </td>
           </tr>
 
-          <!-- BLOCO DESTAQUE (opcional) -->
+          <!-- ASSINATURA -->
           <tr>
-            <td class="px" style="padding:0 48px 40px 48px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#E9F8E3; border-radius:12px;">
-                <tr>
-                  <td style="padding:24px; font-family:Arial, Helvetica, sans-serif;">
-                    <p style="margin:0 0 8px 0; font-size:18px; line-height:24px; font-weight:bold; color:#1A4A12;">
-                      [Título do destaque]
-                    </p>
-                    <p style="margin:0; font-size:15px; line-height:22px; color:#333333;">
-                      [Informação extra: data, local, regras, benefício etc.]
-                    </p>
-                  </td>
-                </tr>
-              </table>
+            <td class="px" align="center" style="padding:36px 48px; background-color:#E9F8E3; font-family:Arial, Helvetica, sans-serif;">
+              <p class="h2" style="margin:0; font-size:24px; line-height:30px; font-weight:800; font-style:italic; color:#1A4A12;">
+                Seu lugar em todos os jogos.<br>
+                <span style="color:#820AD1;">Seu nome na casa do Palmeiras.</span>
+              </p>
+            </td>
+          </tr>
+
+          <!-- LETRAS MIÚDAS -->
+          <tr>
+            <td class="px" style="padding:24px 48px; font-family:Arial, Helvetica, sans-serif;">
+              <p style="margin:0; font-size:12px; line-height:18px; color:#6B6B6B;">
+                Produto sujeito à disponibilidade de cadeiras por setor. Prioridade em shows e eventos limitada a 1 ingresso por cadeira e sujeita à disponibilidade. Descontos podem ter exceções. Carência de 10 dias entre a compra e a liberação de uso do passaporte.
+              </p>
             </td>
           </tr>
 
           <!-- RODAPÉ -->
           <tr>
-            <td class="px" style="padding:32px 48px; background-color:#1A4A12; font-family:Arial, Helvetica, sans-serif;">
-              <p style="margin:0 0 12px 0; font-size:16px; line-height:22px; font-weight:bold; color:#E9F8E3;">
-                Passaporte <span style="color:#C99BFF;">Nubank Parque</span>
+            <td class="px" align="center" style="padding:32px 48px; background-color:#1A4A12; font-family:Arial, Helvetica, sans-serif;">
+              <p style="margin:0 0 16px 0; font-size:14px; line-height:20px; font-weight:800; letter-spacing:2px; color:#E9F8E3;">
+                PASSAPORTE &nbsp;<span style="color:#7FBF6A;">|</span>&nbsp; <span style="color:#C99BFF;">NUBANK PARQUE</span>
               </p>
-              <p style="margin:0 0 12px 0; font-size:12px; line-height:18px; color:#BFD9B8;">
-                [Endereço / informações legais]
+              <p style="margin:0 0 4px 0; font-size:12px; line-height:18px; color:#BFD9B8;">
+                Enviado por Nubank Parque
+              </p>
+              <p style="margin:0 0 16px 0; font-size:12px; line-height:18px; color:#BFD9B8;">
+                Avenida Francisco Matarazzo, 1705 Portão, B1, Água Branca, São Paulo/SP, 05001-200
               </p>
               <p style="margin:0; font-size:12px; line-height:18px; color:#BFD9B8;">
-                Não quer mais receber nossos e-mails?
-                <a href="[LINK_DESCADASTRO]" target="_blank" style="color:#FFFFFF; text-decoration:underline;">Descadastre-se</a>.
+                Caso não queira mais receber estes e-mails, <a href="{{unsubscribe_url}}" target="_blank" style="color:#FFFFFF; text-decoration:underline;">cancele sua inscrição</a>.
               </p>
             </td>
           </tr>
